@@ -17,7 +17,7 @@ library, an avatar or a logo upload, a block editor whose authors paste drawings
 `.svg` file and, under the default policy — which leaves `<style>` out and prefixes every `id` with `svg-` —, to
 write inline in a page that other people read.
 
-It is a plain PHP library, written from scratch, over PHP's `dom` and `libxml` extensions, `ext-mbstring` and
+It is a plain PHP library built on PHP's `dom` and `libxml` extensions, `ext-mbstring` and
 `phil/css-sanitizer`. Nothing is filtered by regular expression on text: the image is parsed, and the output is built
 from an empty document, so that whatever the policy does not name never reaches it.
 

@@ -1,4 +1,4 @@
-<!-- phil-dev source-sha256=59f390a37b5513843eeef1a40b56e5edc92a3c353cee5177e77135ba1170d7ed -->
+<!-- phil-dev source-sha256=71e03b459423cf692c41d5c41e49a0365a695e3ec54eb5db8aae2391ca36dafd -->
 # phil/svg-sanitizer
 
 **Laissez les gens téléverser et coller des images SVG sans leur permettre d'exécuter du code, de charger ce qu'ils ne
@@ -21,7 +21,7 @@ collent des dessins. La sortie peut être servie sans risque comme fichier `.svg
 qui laisse `<style>` de côté et préfixe chaque `id` par `svg-` —, écrite directement dans une page que d'autres
 personnes lisent.
 
-C'est une simple bibliothèque PHP, écrite de zéro, au-dessus des extensions `dom` et `libxml` de PHP, de
+C'est une simple bibliothèque PHP au-dessus des extensions `dom` et `libxml` de PHP, de
 `ext-mbstring` et de `phil/css-sanitizer`. Rien n'est filtré par expression régulière sur du texte : l'image est
 analysée, et la sortie est construite à partir d'un document vide, pour que ce que la politique ne nomme pas ne
 l'atteigne jamais.

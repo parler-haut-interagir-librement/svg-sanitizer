@@ -1,6 +1,6 @@
 {
     "name": "phil/svg-sanitizer",
-    "description": "SVG images written by people made safe to serve, written from scratch: XML read without network, document type nor entities, elements and attributes rewritten from allow lists, no script, event handler, foreignObject nor external reference, styles through phil/css-sanitizer, limits of size, depth, elements and attributes, safe inline by default, every removal reported, and a Symfony validator constraint",
+    "description": "SVG images written by people made safe to serve: XML read without network, document type or entities, elements and attributes rewritten from allow lists, no script, event handler, foreignObject or external reference, styles through phil/css-sanitizer, size and depth limits, safe inline by default, removals reported, and a validator constraint",
     "license": "MIT",
     "type": "library",
     "keywords": [
