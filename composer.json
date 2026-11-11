@@ -1,0 +1,55 @@
+{
+    "name": "phil/svg-sanitizer",
+    "description": "SVG images written by people made safe to serve, written from scratch: XML read without network, document type nor entities, elements and attributes rewritten from allow lists, no script, event handler, foreignObject nor external reference, styles through phil/css-sanitizer, limits of size, depth, elements and attributes, safe inline by default, every removal reported, and a Symfony validator constraint",
+    "license": "MIT",
+    "type": "library",
+    "keywords": [
+        "svg",
+        "sanitizer",
+        "xss",
+        "security",
+        "upload",
+        "images",
+        "validator"
+    ],
+    "authors": [
+        {
+            "name": "Philippe Gamache",
+            "email": "philippe@ph-il.ca",
+            "homepage": "https://github.com/ph-il",
+            "role": "Developer"
+        }
+    ],
+    "homepage": "https://ph-il.ca",
+    "require": {
+        "php": ">=8.5",
+        "ext-dom": "*",
+        "ext-libxml": "*",
+        "ext-mbstring": "*",
+        "phil/css-sanitizer": "^0.1@dev"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^13.4",
+        "symfony/validator": "^8.2"
+    },
+    "suggest": {
+        "symfony/validator": "For the SafeSvg constraint"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Phil\\SvgSanitizer\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Phil\\SvgSanitizer\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "0.1.x-dev"
+        }
+    }
+}
