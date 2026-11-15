@@ -81,7 +81,7 @@ final class SafeSvgValidatorTest extends ConstraintValidatorTestCase
         $more = $violations[100];
         self::assertNotNull($more);
         self::assertSame('And {{ count }} more.', $more->getMessageTemplate());
-        self::assertSame(['{{ count }}' => '3'], $more->getParameters());
+        self::assertSame(['{{ count }}' => 3], $more->getParameters());
         self::assertSame(3, $more->getPlural());
         self::assertSame(SafeSvg::NOT_ALLOWED_ERROR, $more->getCode());
     }

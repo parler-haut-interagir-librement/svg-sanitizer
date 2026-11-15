@@ -44,12 +44,12 @@ into violations.
 
 | Document | What it covers |
 |---|---|
-| [Installation](doc/installation.md) | Requirements and installing. |
+| [Installation](doc/installation.md) | Requirements, installing, the translations. |
 | [Sanitizing](doc/sanitizing.md) | Sanitizing an image, the result, the removals and their reasons. |
 | [Policy](doc/policy.md) | What the default policy allows, every `with…()`, and the limits. |
 | [References](doc/references.md) | `href`, `url()`, links and `data:` addresses. |
 | [Threats](doc/threats.md) | What the sanitizer protects from, how, and what stays the application's. |
-| [Validator](doc/validator.md) | The `SafeSvg` constraint. |
+| [Validator](doc/validator.md) | The `SafeSvg` constraint, its parameters, and its messages in English and French. |
 | [Extension points](doc/extension-points.md) | The policy, the CSS policy and its rewriter, the result. |
 | [Exceptions](doc/exceptions.md) | `SvgSanitizerException` and `InvalidPolicy`. |
 | [Testing](doc/testing.md) | The library's tests and mutation bar, and how to test code that sanitizes SVG. |
@@ -91,7 +91,7 @@ foreach ($sanitized->removals as $removal) {
 ## Requirements
 
 PHP 8.5 or later, with the `dom`, `libxml` and `mbstring` extensions; `phil/css-sanitizer`; `symfony/validator` for
-the `SafeSvg` constraint.
+the `SafeSvg` constraint, and `symfony/translation` with `ext-intl` for the ICU catalogues of its messages.
 
 ## Contributing
 

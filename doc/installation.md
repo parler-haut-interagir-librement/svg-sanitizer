@@ -9,6 +9,7 @@
 | `ext-mbstring` | The subjects of removals cut on characters |
 | `phil/css-sanitizer` | The CSS of `style` attributes, `<style>` elements and presentation attributes |
 | `symfony/validator` 8.2 or later, optional | The `SafeSvg` constraint |
+| `symfony/translation` and `ext-intl` or its polyfill, optional | The ICU catalogues of the `SafeSvg` messages |
 
 ## Installing
 
@@ -16,7 +17,7 @@
 composer require phil/svg-sanitizer
 ```
 
-It is a library, not a bundle: there is nothing to register. Build an `SvgSanitizer` with the application's policy,
+It is a library, not a bundle: there is nothing to register but, optionally, the translations of its constraint. Build an `SvgSanitizer` with the application's policy,
 once, and keep it; it holds no state between two calls.
 
 ```php
@@ -45,3 +46,15 @@ services:
 ```
 
 Without that declaration, the validator is built by the validator's own factory with the default policy.
+
+## Translations
+
+The messages of `SafeSvg` are translated by catalogues in ICU MessageFormat, in `translations/`
+([Validator](validator.md#messages-and-translations)). Give their directory to the translator:
+
+```yaml
+framework:
+    translator:
+        paths:
+            - '%kernel.project_dir%/vendor/phil/svg-sanitizer/translations'
+```

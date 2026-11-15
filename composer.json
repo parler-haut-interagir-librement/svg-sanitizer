@@ -29,10 +29,13 @@
         "phil/css-sanitizer": "^0.1@dev"
     },
     "require-dev": {
+        "ext-intl": "*",
         "phpunit/phpunit": "^13.4",
+        "symfony/translation": "^8.2",
         "symfony/validator": "^8.2"
     },
     "suggest": {
+        "ext-intl": "For the ICU catalogues of the constraint messages",
         "symfony/validator": "For the SafeSvg constraint"
     },
     "minimum-stability": "dev",

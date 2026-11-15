@@ -1,4 +1,4 @@
-<!-- phil-dev source-sha256=e5dbd0cde1cc67ace04c9dcc409730d6d9917bc8d9d941a1d3836fe17b0059d5 -->
+<!-- phil-dev source-sha256=5cd9453dff9727971eb9c57f8b395aa4966294128fd9f033541f6dce6c8db247 -->
 # Validateur
 
 `Validator\SafeSvg` est une contrainte pour `symfony/validator` : la valeur, une chaîne ou un `Stringable`, est une
@@ -37,3 +37,32 @@ Un formulaire peut valider avec `SafeSvg` et conserver l'image telle qu'écrite,
 en entier. Il peut aussi se passer de la contrainte et conserver ce que retourne `sanitize()`, en indiquant à l'auteur
 ce qui a été retiré. Une image validée une fois est quand même assainie de nouveau quand la politique change : la
 contrainte vérifie la valeur selon la politique du moment.
+
+## Messages et traductions
+
+Les violations portent leurs nombres sous forme d'entiers — `{{ line }}` de chaque retrait et `{{ count }}` des
+retraits au-delà des 100 premiers — et les autres paramètres sous forme de chaînes. Les messages par défaut sont les
+clés de traduction, dans le domaine `validators`.
+
+La bibliothèque fournit des catalogues en ICU MessageFormat, dans le domaine `validators+intl-icu`, dans
+`translations/` :
+
+| Locale | Messages |
+|---|---|
+| `en` | `moreMessage`, dont le pluriel suit `{{ count }}`. |
+| `fr` | Chaque message par défaut : ce qui a été retiré suit `{{ reason }}`, et le pluriel de `moreMessage` suit `{{ count }}`. |
+
+```text
+This SVG image holds {{ count }} more parts that are not allowed.
+→ {count, plural, one {This SVG image holds # more part that is not allowed.} other {This SVG image holds # more parts that are not allowed.}}
+```
+
+`{{ removed }}` est `RemovalReason::describe()`, en anglais : le catalogue français nomme plutôt chaque raison à partir
+de `{{ reason }}`, et se rabat sur `{{ removed }}` pour une raison qu'il ne connaît pas.
+
+Les catalogues sont lus dès que l'application donne leur répertoire au traducteur de FrameworkBundle
+([Installation](installation.md#traductions)) ; le domaine ICU a besoin de `MessageFormatter`, de `ext-intl` ou de
+`symfony/polyfill-intl-messageformatter`. Sans eux, les messages restent tels qu'écrits. Le répertoire `translations/`
+de l'application vient après celui de la bibliothèque : un message qu'elle y traduit, dans le domaine `validators` ou
+`validators+intl-icu`, remplace celui de la bibliothèque. Un message donné à la contrainte (`moreMessage: '…'`) est
+traduit comme n'importe quelle clé du domaine ; écrit en ICU, il appartient à un catalogue ICU de l'application.

@@ -1,4 +1,4 @@
-<!-- phil-dev source-sha256=71e03b459423cf692c41d5c41e49a0365a695e3ec54eb5db8aae2391ca36dafd -->
+<!-- phil-dev source-sha256=620db7571cdecb60b34aeedb32e773bfc446a48b81ed2b019f679e7acf3e19bf -->
 # phil/svg-sanitizer
 
 **Laissez les gens téléverser et coller des images SVG sans leur permettre d'exécuter du code, de charger ce qu'ils ne
@@ -49,12 +49,12 @@ les retraits en violations.
 
 | Document | Ce qu'il couvre |
 |---|---|
-| [Installation](doc/fr/installation.md) | Les prérequis et l'installation. |
+| [Installation](doc/fr/installation.md) | Les prérequis, l'installation, les traductions. |
 | [Assainir](doc/fr/sanitizing.md) | Assainir une image, le résultat, les retraits et leurs raisons. |
 | [Politique](doc/fr/policy.md) | Ce que permet la politique par défaut, chaque `with…()`, et les limites. |
 | [Références](doc/fr/references.md) | `href`, `url()`, les liens et les adresses `data:`. |
 | [Menaces](doc/fr/threats.md) | Ce contre quoi l'assainisseur protège, comment, et ce qui reste à l'application. |
-| [Validateur](doc/fr/validator.md) | La contrainte `SafeSvg`. |
+| [Validateur](doc/fr/validator.md) | La contrainte `SafeSvg`, ses paramètres, et ses messages en anglais et en français. |
 | [Points d'extension](doc/fr/extension-points.md) | La politique, la politique CSS et son réécriveur, le résultat. |
 | [Exceptions](doc/fr/exceptions.md) | `SvgSanitizerException` et `InvalidPolicy`. |
 | [Tests](doc/fr/testing.md) | Les tests et le seuil de mutation de la bibliothèque, et comment tester du code qui assainit du SVG. |
@@ -96,7 +96,8 @@ foreach ($sanitized->removals as $removal) {
 ## Prérequis
 
 PHP 8.5 ou plus récent, avec les extensions `dom`, `libxml` et `mbstring` ; `phil/css-sanitizer` ;
-`symfony/validator` pour la contrainte `SafeSvg`.
+`symfony/validator` pour la contrainte `SafeSvg`, et `symfony/translation` avec `ext-intl` pour les catalogues ICU de
+ses messages.
 
 ## Contribuer
 

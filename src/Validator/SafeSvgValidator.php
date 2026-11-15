@@ -45,7 +45,7 @@ final class SafeSvgValidator extends ConstraintValidator
             $this->context->buildViolation($refused ? $constraint->refusedMessage : $constraint->message)
                 ->setParameter('{{ removed }}', $removal->reason->describe())
                 ->setParameter('{{ subject }}', $removal->subject)
-                ->setParameter('{{ line }}', (string) $removal->line)
+                ->setParameter('{{ line }}', $removal->line)
                 ->setParameter('{{ reason }}', $removal->reason->value)
                 ->setCode($refused ? SafeSvg::REFUSED_ERROR : SafeSvg::NOT_ALLOWED_ERROR)
                 ->addViolation();
@@ -53,7 +53,7 @@ final class SafeSvgValidator extends ConstraintValidator
 
         if ($sanitized->omittedRemovals > 0) {
             $this->context->buildViolation($constraint->moreMessage)
-                ->setParameter('{{ count }}', (string) $sanitized->omittedRemovals)
+                ->setParameter('{{ count }}', $sanitized->omittedRemovals)
                 ->setPlural($sanitized->omittedRemovals)
                 ->setCode(SafeSvg::NOT_ALLOWED_ERROR)
                 ->addViolation();
