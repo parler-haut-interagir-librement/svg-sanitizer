@@ -4,6 +4,17 @@ All notable changes to `phil/svg-sanitizer` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](https://keepachangelog.com/) principles.
 
+## 0.1.2-alpha - 2026-11-24
+
+Documentation and tests only.
+
+### Added
+
+- Regression tests: an animation that rewrites a link, through `set` or `animate`, `href` or `xlink:href`, in capitals
+  or with a space; character references padded with zeros, tabs and line feeds inside a scheme; images of a special
+  scheme without its authority; an output sanitized again, which loses nothing.
+- The documentation of an output sanitized again, and of its `id` prefix written once more.
+
 ## 0.1.1-alpha - 2026-11-15
 
 ### Added

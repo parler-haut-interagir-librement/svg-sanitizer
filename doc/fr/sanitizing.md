@@ -1,4 +1,4 @@
-<!-- phil-dev source-sha256=71ed48a3534915338c4ff2d78ceb98274f66def34405b7d571607674ce0db871 -->
+<!-- phil-dev source-sha256=a4b9d545089d04c1a0b5ce69ee57e96f5abf39dc5615dc9ad3510e3d9555bbf2 -->
 # Assainir
 
 ## Une image
@@ -32,6 +32,11 @@ tiré d'une page HTML.
 
 Un élément retiré emporte son contenu : le texte d'un `<script>`, les enfants d'un `<metadata>` ou d'un élément d'un
 autre espace de noms n'atteignent jamais la sortie.
+
+Une sortie assainie de nouveau sous la même politique ne perd rien : rien de plus n'est retiré, et `isClean()` est vrai.
+Sans préfixe d'`id` (`withIdPrefix(null)`), elle revient octet pour octet ; avec un préfixe, chaque passage écrit le
+préfixe une fois de plus devant chaque `id` et chaque référence à celui-ci, qui restent appariés : assainissez une image
+une seule fois, à sa réception, et stockez la sortie.
 
 ## Retraits
 

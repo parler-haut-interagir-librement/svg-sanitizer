@@ -1,6 +1,6 @@
 {
     "name": "phil/svg-sanitizer",
-    "description": "SVG images written by people made safe to serve: XML read without network, document type or entities, elements and attributes rewritten from allow lists, no script, event handler, foreignObject or external reference, styles through phil/css-sanitizer, size and depth limits, safe inline by default, removals reported, and a validator constraint",
+    "description": "Let people upload and paste SVG images without letting them run code, load outside resources or embed another document, with a validator constraint.",
     "license": "MIT",
     "type": "library",
     "keywords": [

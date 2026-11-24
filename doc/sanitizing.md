@@ -31,6 +31,11 @@ written in the SVG namespace, as an `<svg>` taken out of an HTML page often is.
 An element that is removed takes its content with it: the text of a `<script>`, the children of a `<metadata>` or of
 an element of another namespace never reach the output.
 
+An output sanitized again under the same policy loses nothing: nothing more is removed, and `isClean()` is true.
+Without an `id` prefix (`withIdPrefix(null)`), it comes back byte for byte; with one, each pass writes the prefix once
+more before every `id` and every reference to it, which stay paired: sanitize an image once, when it is received, and
+store the output.
+
 ## Removals
 
 An image of a few megabytes can hold hundreds of thousands of attributes to remove: the first 100 removals are
